@@ -1,0 +1,7 @@
+frontend/node_modules/
+backend/target/
+# Lo genera "npm run build"
+backend/src/main/resources/static/
+# Fotos subidas desde el panel
+backend/uploads/*
+!backend/uploads/.gitkeep

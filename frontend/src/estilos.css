@@ -1,0 +1,451 @@
+/* =========================================================
+   Estilos de la mueblería
+   Colores: terracota, crema y marrón oscuro.
+   ========================================================= */
+
+:root {
+  --terracota: #b85a35;
+  --terracota-oscuro: #9a4627;
+  --crema: #f7f0e6;
+  --crema-oscuro: #ece0cf;
+  --blanco-calido: #fffcf7;
+  --marron: #3a2a20;
+  --marron-suave: #6b5446;
+
+  --radio: 1.25rem;
+  --sombra: 0 1px 2px rgba(58, 42, 32, 0.06), 0 8px 24px rgba(58, 42, 32, 0.07);
+
+  /* Le pasamos nuestros colores a Bootstrap */
+  --bs-body-bg: var(--crema);
+  --bs-body-color: var(--marron);
+  --bs-link-color-rgb: 154, 70, 39;
+  --bs-link-hover-color-rgb: 58, 42, 32;
+  --bs-border-color: #dccbb5;
+  --bs-border-radius: 0.75rem;
+}
+
+/* Footer siempre abajo aunque la página tenga poco contenido */
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+/* ---------- Tipografía ---------- */
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5,
+.marca, .precio, .pie-marca, .categoria-nombre {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+h1, .h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+h2, .h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
+
+.texto-suave { color: var(--marron-suave); }
+
+/* ---------- Botones tipo píldora ---------- */
+.btn-pildora {
+  border-radius: 50rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  border-width: 1.5px;
+}
+.btn-pildora.btn-sm { padding: 0.35rem 1rem; }
+.btn-pildora.btn-lg { padding: 0.75rem 1.75rem; font-size: 1.05rem; }
+
+.btn-terracota {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--terracota);
+  --bs-btn-border-color: var(--terracota);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--terracota-oscuro);
+  --bs-btn-hover-border-color: var(--terracota-oscuro);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--terracota-oscuro);
+  --bs-btn-active-border-color: var(--terracota-oscuro);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--terracota);
+  --bs-btn-disabled-border-color: var(--terracota);
+  --bs-btn-focus-shadow-rgb: 184, 90, 53;
+}
+
+.btn-marron {
+  --bs-btn-color: var(--crema);
+  --bs-btn-bg: var(--marron);
+  --bs-btn-border-color: var(--marron);
+  --bs-btn-hover-color: var(--crema);
+  --bs-btn-hover-bg: #2a1e17;
+  --bs-btn-hover-border-color: #2a1e17;
+  --bs-btn-active-color: var(--crema);
+  --bs-btn-active-bg: #2a1e17;
+  --bs-btn-active-border-color: #2a1e17;
+  --bs-btn-focus-shadow-rgb: 58, 42, 32;
+}
+
+.btn-borde {
+  --bs-btn-color: var(--marron);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--marron);
+  --bs-btn-hover-color: var(--crema);
+  --bs-btn-hover-bg: var(--marron);
+  --bs-btn-hover-border-color: var(--marron);
+  --bs-btn-active-color: var(--crema);
+  --bs-btn-active-bg: var(--marron);
+  --bs-btn-active-border-color: var(--marron);
+  --bs-btn-focus-shadow-rgb: 58, 42, 32;
+}
+
+.btn-crema {
+  --bs-btn-color: var(--marron);
+  --bs-btn-bg: var(--crema);
+  --bs-btn-border-color: var(--crema);
+  --bs-btn-hover-color: var(--marron);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-active-color: var(--marron);
+  --bs-btn-active-bg: #fff;
+  --bs-btn-active-border-color: #fff;
+  --bs-btn-focus-shadow-rgb: 247, 240, 230;
+}
+
+.btn-borrar {
+  --bs-btn-color: #a12f22;
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: #d9a69c;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #a12f22;
+  --bs-btn-hover-border-color: #a12f22;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #a12f22;
+  --bs-btn-active-border-color: #a12f22;
+  --bs-btn-focus-shadow-rgb: 161, 47, 34;
+}
+
+/* ---------- Formularios ---------- */
+.form-control,
+.form-select {
+  background-color: var(--blanco-calido);
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--terracota);
+  box-shadow: 0 0 0 0.2rem rgba(184, 90, 53, 0.2);
+}
+.form-label { font-weight: 600; }
+
+/* ---------- Barra de navegación ---------- */
+.barra {
+  background: var(--crema);
+  border-bottom: 1px solid var(--crema-oscuro);
+}
+.marca {
+  color: var(--terracota);
+  font-size: 1.4rem;
+}
+.marca:hover { color: var(--terracota-oscuro); }
+
+.barra .nav-link {
+  color: var(--marron);
+  font-weight: 600;
+  border-radius: 50rem;
+  padding-inline: 0.9rem !important;
+}
+.barra .nav-link:hover { color: var(--terracota); }
+.barra .nav-link.activo {
+  background: var(--crema-oscuro);
+  color: var(--marron);
+}
+.navbar-toggler {
+  border: none;
+  border-radius: 50rem;
+}
+.navbar-toggler:focus { box-shadow: 0 0 0 0.2rem rgba(184, 90, 53, 0.25); }
+
+/* ---------- Portada ---------- */
+.portada-envoltorio {
+  padding: 0.75rem;
+}
+.portada {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(78vh, 680px);
+  border-radius: 1.75rem;
+  overflow: hidden;
+  background: var(--marron); /* se ve mientras carga la foto */
+}
+.portada-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Capa oscura para que el texto se lea bien sobre cualquier foto */
+.portada::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 27, 19, 0.45);
+}
+.portada-texto {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1.5rem;
+  max-width: 44rem;
+  color: var(--crema);
+}
+.portada h1 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 1.02;
+  color: #fff8ef;
+  margin-bottom: 1rem;
+}
+.portada-lema {
+  font-size: 1.2rem;
+  margin-bottom: 1.75rem;
+}
+@media (min-width: 768px) {
+  .portada-texto { padding: 4rem; }
+}
+
+/* ---------- Categorías (inicio) ---------- */
+.categoria-bloque {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 12rem;
+  padding: 1.75rem;
+  border-radius: var(--radio);
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.categoria-bloque:hover { transform: translateY(-3px); }
+
+.tono-0 { background: var(--terracota-oscuro); color: var(--crema); }
+.tono-1 { background: var(--marron); color: var(--crema); }
+.tono-2 { background: var(--crema-oscuro); color: var(--marron); }
+
+.categoria-nombre { font-size: 2rem; line-height: 1.1; }
+.categoria-texto { margin-top: 0.5rem; opacity: 0.9; }
+.categoria-ver {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.enlace-flecha {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- Tarjeta de producto ---------- */
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--blanco-calido);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+.tarjeta-foto {
+  aspect-ratio: 4 / 3;
+  background: var(--crema-oscuro);
+}
+.tarjeta-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.sin-foto {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marron-suave);
+}
+.tarjeta-cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem;
+}
+.tarjeta-categoria {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--terracota-oscuro);
+}
+.tarjeta-titulo {
+  font-size: 1.25rem;
+  margin: 0.25rem 0 0.5rem;
+}
+/* La descripción se corta a 3 renglones para que las tarjetas queden parejas */
+.tarjeta-descripcion {
+  color: var(--marron-suave);
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.tarjeta-pie {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.precio { font-size: 1.3rem; }
+
+/* ---------- Catálogo ---------- */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ---------- Sobre nosotros ---------- */
+.foto-local {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio);
+  display: block;
+}
+.dato-contacto {
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: var(--radio);
+  background: var(--crema-oscuro);
+}
+.dato-contacto h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.dato-contacto p { margin-bottom: 0.5rem; }
+.dato-contacto a { font-weight: 600; }
+
+/* ---------- Login ---------- */
+.caja-login {
+  max-width: 24rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--blanco-calido);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* ---------- Panel ---------- */
+.caja-panel {
+  padding: 1.5rem;
+  background: var(--blanco-calido);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+.caja-panel summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+.vista-previa {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.aviso {
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #e3ecd9;
+  color: #2f4a1f;
+}
+.aviso-error {
+  background: #f6dcd6;
+  color: #7a2418;
+}
+
+.lista-panel {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.lista-panel li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--crema-oscuro);
+  border-radius: 0.5rem;
+}
+.lista-panel li:last-child { border-bottom: none; }
+.lista-panel li.editando { background: var(--crema); }
+.lista-panel img,
+.mini-sin-foto {
+  width: 72px;
+  height: 54px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background: var(--crema-oscuro);
+}
+.lista-datos {
+  flex: 1;
+  min-width: 0; /* permite cortar nombres largos */
+  display: flex;
+  flex-direction: column;
+}
+.lista-datos strong,
+.lista-datos small {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lista-datos small { color: var(--marron-suave); }
+
+/* ---------- Footer ---------- */
+.pie {
+  background: var(--marron);
+  color: var(--crema-oscuro);
+}
+.pie a {
+  color: var(--crema);
+  text-decoration: none;
+}
+.pie a:hover { text-decoration: underline; }
+.pie-marca {
+  font-size: 1.4rem;
+  color: var(--crema);
+  margin-bottom: 0.5rem;
+}
+.pie-titulo {
+  font-weight: 700;
+  color: var(--crema);
+  margin-bottom: 0.5rem;
+}
+.pie-final {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(247, 240, 230, 0.15);
+  font-size: 0.9rem;
+}
+.pie-final a { opacity: 0.6; }
+
+/* Si la persona pidió menos animaciones en su sistema, las sacamos */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
