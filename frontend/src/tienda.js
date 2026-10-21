@@ -1,7 +1,8 @@
 // Datos de la tienda. Cambialos acá y se actualizan en toda la página.
 
 export const tienda = {
-  nombre: 'Mueblería El Roble',
+  nombre: 'Mueblería Salvini',
+  marca: 'Salvini', // lo que va grande en la portada
   lema: 'Sofás, sillones y sillas para tu casa. Vení a probarlos al local.',
   direccion: 'Av. San Martín 1234, Buenos Aires',
   telefono: '11 1234-5678',

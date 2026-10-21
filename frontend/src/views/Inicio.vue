@@ -26,16 +26,19 @@ onMounted(async () => {
       <!-- Es lo primero que se ve, así que NO lleva lazy loading (al contrario: prioridad alta) -->
       <img
         class="portada-foto"
-        src="/img/portada.jpg"
-        srcset="/img/portada-chica.jpg 800w, /img/portada.jpg 1600w"
+        src="/img/banner-portada.jpg"
+        srcset="/img/banner-portada-chica.jpg 1000w, /img/banner-portada.jpg 1983w"
         sizes="100vw"
-        width="1600"
-        height="900"
+        width="1983"
+        height="793"
         alt=""
         fetchpriority="high"
       />
       <div class="portada-texto">
-        <h1>{{ tienda.nombre }}</h1>
+        <h1 class="portada-logo" :aria-label="tienda.nombre">
+          <span class="portada-marca">{{ tienda.marca }}</span>
+          <span class="portada-rubro">Mueblería</span>
+        </h1>
         <p class="portada-lema">{{ tienda.lema }}</p>
         <div class="d-flex flex-wrap gap-2">
           <RouterLink to="/catalogo" class="btn btn-pildora btn-terracota btn-lg">Ver catálogo</RouterLink>

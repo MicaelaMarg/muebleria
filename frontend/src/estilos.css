@@ -12,6 +12,9 @@
   --marron: #3a2a20;
   --marron-suave: #6b5446;
 
+  /* Letra de títulos y logo. Si conseguís la Chock Tagmed original, se cambia solo acá. */
+  --fuente-titulos: 'Titan One', system-ui, sans-serif;
+
   --radio: 1.25rem;
   --sombra: 0 1px 2px rgba(58, 42, 32, 0.06), 0 8px 24px rgba(58, 42, 32, 0.07);
 
@@ -38,9 +41,9 @@ main {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5,
 .marca, .precio, .pie-marca, .categoria-nombre {
-  font-family: 'Nunito', system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-family: var(--fuente-titulos);
+  font-weight: 400; /* Titan One ya es gruesa: así el navegador no la engorda de más */
+  letter-spacing: 0;
 }
 h1, .h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
 h2, .h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
@@ -184,6 +187,17 @@ h2, .h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left center; /* si hay que recortar, que se vean los muebles de la izquierda */
+}
+/* En pantallas anchas la portada toma la forma del banner, así no se recorta */
+@media (min-width: 992px) {
+  .portada {
+    min-height: 0;
+    aspect-ratio: 1983 / 793;
+    justify-content: flex-end; /* el texto va a la derecha, donde el banner está vacío */
+    align-items: center;
+  }
+  .portada-texto { margin-right: 6%; } /* separa el texto del borde derecho */
 }
 /* Capa oscura para que el texto se lea bien sobre cualquier foto */
 .portada::after {
@@ -204,6 +218,25 @@ h2, .h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
   line-height: 1.02;
   color: #fff8ef;
   margin-bottom: 1rem;
+}
+/* Logo: nombre grueso y, encimada abajo a la derecha, la palabra en cursiva */
+.portada-logo { display: inline-flex; flex-direction: column; align-items: flex-end; }
+.portada-marca {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+.portada-rubro {
+  font-family: 'Yellowtail', cursive;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  line-height: 1;
+  margin-top: -0.45em;
+  margin-right: -0.2em;
+  transform: rotate(-6deg);
 }
 .portada-lema {
   font-size: 1.2rem;
